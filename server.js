@@ -4,6 +4,7 @@ const connectDB = require('./config/db');
 const studentRoutes = require('./routes/studentRoutes');
 const saleRoutes = require('./routes/saleRoutes');
 const employeeRoutes = require('./routes/employeeRoutes.js');
+const managerRoutes = require('./routes/managerRoutes.js');
 
 
 // Initialize express and connect to DB
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api', studentRoutes);
+app.use('/api', managerRoutes);
 app.use('/api/sales', saleRoutes);
 app.use('/api/employees', employeeRoutes);
 

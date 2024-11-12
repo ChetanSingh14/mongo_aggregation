@@ -1,5 +1,6 @@
 const Employee = require('../models/Employee');
 const mongoose = require('mongoose');
+const Manager = require('../models/Manager');
 
 // Find employees under a specific manager
 exports.getEmployeesUnderManager = async (req, res) => {
@@ -15,6 +16,9 @@ exports.getEmployeesUnderManager = async (req, res) => {
     const employeesUnderManager = await Employee.aggregate([
       { $match: { managerId: new mongoose.Types.ObjectId(managerId) } },
     ]);
+
+    // await Manager.populate(employeesUnderManager, {path:"managerId"})
+    
 
     // Return the list of employees or a message if none are found
     if (employeesUnderManager.length === 0) {

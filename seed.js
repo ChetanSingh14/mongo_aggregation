@@ -33,5 +33,3 @@ const seedData = async () => {
 };
 
 seedData();
-
-
